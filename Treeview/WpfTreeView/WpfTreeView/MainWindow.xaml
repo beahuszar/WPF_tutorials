@@ -4,11 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfTreeView"
-        Loaded="Window_Loaded"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TreeView x:Name="FolderView">
+        <!-- Binding is referring to the dataContext in the xaml.cs class -->
+        <!-- it is instantiated as a DirectoryStructureViewModel -->
+        <!-- DirectoryStructureViewModel has an Items property -->
+        <TreeView x:Name="FolderView" ItemsSource="{Binding Items}">
             <TreeView.Resources>
                 <!-- applies for the x type in the <Window>, which is the xaml file -->
                 <Style TargetType="{x:Type TreeViewItem}" >
